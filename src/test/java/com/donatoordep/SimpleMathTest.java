@@ -33,7 +33,7 @@ public class SimpleMathTest {
     }
 
     @Test
-    @Disabled // Desabilitando o teste
+    @Disabled("TODO: We need still work on it!") // Desabilitando o teste
     @DisplayName("Test 10 - 2 = 8")
     void testSubtraction_WHEN_TenAddedTwo_ShouldReturnEight() {
         SimpleMath math = new SimpleMath();
