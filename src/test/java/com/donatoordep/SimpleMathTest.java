@@ -1,5 +1,6 @@
 package com.donatoordep;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,22 +11,30 @@ public class SimpleMathTest {
 
     // Nomeclatura test[System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
-    @DisplayName("6.2 + 2 = 8.2") // Altera o nome do teste para maior legibilidade
+    @DisplayName("Test 6.2 + 2 = 8.2")
+    // Altera o nome do teste para maior legibilidade
     void testSum_When_SixDotTwoIsAddedTwo_ShouldReturnEightDotTwo() {
-        SimpleMath math = new SimpleMath();
-        double firstNumber = 6.2D;
-        double secondNumber = 2D;
 
-        Double actual = math.sum(firstNumber, secondNumber);
+        // AAA (Triple AAA) - Arrange, Act e Assert
+        // Given / Arrange - Critério inicial, cenário inicial das classes (setar configurações, iniciar variaveis)
+        SimpleMath math = new SimpleMath();
+
+        Double firstNumber = 6.2D;
+        Double secondNumber = 2D;
         Double expected = 8.2D;
 
+        // When / Act- Dispara o gatilho, inicia a execução do cenário.
+        Double actual = math.sum(firstNumber, secondNumber);
+
+        // Then / Assert - Avaliação do resultado, verifica se corresponde ao esperado.
         // Lazy Assert Message (Só será executada se o teste falhar) + Performance.
         assertEquals(expected, actual, () -> String.format("%.2f + %.2f not produces %.2f",
                 firstNumber, secondNumber, expected));
     }
 
     @Test
-    @DisplayName("10 - 2 = 8")
+    @Disabled // Desabilitando o teste
+    @DisplayName("Test 10 - 2 = 8")
     void testSubtraction_WHEN_TenAddedTwo_ShouldReturnEight() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 10D;
@@ -39,7 +48,7 @@ public class SimpleMathTest {
     }
 
     @Test
-    @DisplayName("5 * 2 = 10")
+    @DisplayName("Test 5 * 2 = 10")
     void testMultiplication_WHEN_FiveIsMultipliedByTwo_ShouldReturnTen() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 5D;
@@ -53,7 +62,7 @@ public class SimpleMathTest {
     }
 
     @Test
-    @DisplayName("(10 + 8) / 2 = 9")
+    @DisplayName("Test (10 + 8) / 2 = 9")
     void testMean_WHEN_TenSumEightDividedByTwo_ShouldReturnNine() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 10D;
@@ -65,4 +74,6 @@ public class SimpleMathTest {
         assertEquals(expected, actual, () -> String.format("((%.2f + %.2f) / 2) not produces %.2f",
                 firstNumber, secondNumber, expected));
     }
+
+
 }
