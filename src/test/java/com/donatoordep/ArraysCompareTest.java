@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ArraysCompareTest {
 
     @Test
-    void test() {
+    void compareArrays() {
 
         // Criação de dois arrays
         int[] numbers = {25, 8, 21, 32, 3};
