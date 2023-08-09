@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test operators in SimpleMath Class")
-public class SimpleMathTest {
+public class SimpleMathTestS3 {
 
     SimpleMath math;
 
@@ -57,7 +57,7 @@ public class SimpleMathTest {
     @Test
     @Disabled("TODO: We need still work on it!") // Desabilitando o teste
     @DisplayName("Test 10 - 2 = 8")
-    void testSubtraction_WHEN_TenAddedTwo_ShouldReturnEight() {
+    void testSubtraction_When_TenAddedTwo_ShouldReturnEight() {
         Double firstNumber = 10D;
         Double secondNumber = 2D;
 
@@ -69,8 +69,27 @@ public class SimpleMathTest {
     }
 
     @Test
+    @DisplayName("Test 6.2 / 0 = ArithmeticException()")
+    void testDivision_When_FirstNumberDividedByZero_ShouldReturnThrowArithmeticException() {
+        // Given
+        Double firstNumber = 6.2D;
+        Double secondNumber = 0D;
+
+        String expected = "Impossible to divide by zero";
+
+        //When & Then
+        ArithmeticException actual = assertThrows(ArithmeticException.class,
+                () -> {
+                    math.division(firstNumber, secondNumber);
+                }, () -> "Division by zero should throw and ArithmeticException");
+
+        assertEquals(expected, actual.getMessage(), () -> "Unexpected exception message");
+        System.out.println("Running testDivision method");
+    }
+
+    @Test
     @DisplayName("Test 5 * 2 = 10")
-    void testMultiplication_WHEN_FiveIsMultipliedByTwo_ShouldReturnTen() {
+    void testMultiplication_When_FiveIsMultipliedByTwo_ShouldReturnTen() {
         Double firstNumber = 5D;
         Double secondNumber = 2D;
 
@@ -83,7 +102,7 @@ public class SimpleMathTest {
 
     @Test
     @DisplayName("Test (10 + 8) / 2 = 9")
-    void testMean_WHEN_TenSumEightDividedByTwo_ShouldReturnNine() {
+    void testMean_When_TenSumEightDividedByTwo_ShouldReturnNine() {
         Double firstNumber = 10D;
         Double secondNumber = 8D;
 
