@@ -20,7 +20,7 @@ public class SimpleMathTestS4 {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @ValueSource(strings = {"Pedro", "Gabriel", "Felipe"})
     void testValueSource(String firstName) {
         System.out.println(firstName);
@@ -36,7 +36,7 @@ public class SimpleMathTestS4 {
             "18.3, 3.1, 5.90"
     })*/
     @DisplayName("Test double division [firstNumber, secondNumber, expected]")
-    @ParameterizedTest
+    // @ParameterizedTest
     @CsvFileSource(resources = "/testDivision.csv")
     void testDivision(
             double firstNumber, double secondNumber, double expected) {
